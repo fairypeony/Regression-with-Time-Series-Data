@@ -178,10 +178,6 @@ gen dlnp_MSFT = ln(p_MSFT) - ln(p_MSFT[_n-1])
 gen dlnp_SP500 = ln(p_SP500) - ln(p_SP500[_n-1])
 * Menghitung perubahan log harga saham Microsoft dan S&P 500.
 
-*scatter dlnp_MSFT r_MSFT , xla(, grid) yla(, grid)
-*scatter dlnp_SP500 r_SP500 , xla(, grid) yla(, grid)
-
-
 reg r_MSFT r_SP500, robust
 * Melakukan regresi robust antara return Microsoft dan S&P 500 (bulanan).
  outreg2 using "$output/ch12-table-3-stocks-reg.tex", tex(frag) dec(4) 2aster label ctitle("MSFT returns, monthly, pct change") replace 
